@@ -4,7 +4,7 @@ IMDB mobile application developed with the initial design provided in FIGMA, Mai
 
 [Android APK](https://drive.google.com/file/d/15lvQSy1iqdK4J6tIsPROPn6T9UX5MIwA/view?usp=sharing)
 
-[FIGMA Design]([https://drive.google.com/file/d/15lvQSy1iqdK4J6tIsPROPn6T9UX5MIwA/view?usp=sharing](https://www.figma.com/file/zUxb8in82YlB1aaXarSVO9/IMDB-Clone-app-design?node-id=0%3A1&t=VSt5FPMO9PP9u3YI-1))
+[FIGMA Design](https://www.figma.com/file/zUxb8in82YlB1aaXarSVO9/IMDB-Clone-app-design?node-id=0%3A1&t=VSt5FPMO9PP9u3YI-1)
 
 [Video Demonstration of app working](https://drive.google.com/file/d/1XcdzaLeLJs0cgYUrOp-s0Ts09bJqL3Ee/view?usp=sharing)
 
