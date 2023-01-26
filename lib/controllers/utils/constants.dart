@@ -9,13 +9,18 @@ enum IMDB {
 }
 
 class Constants {
+  static String baseURL = "https://api.themoviedb.org/3/";
+  static String imageBaseURL = "http://image.tmdb.org/t/p/";
+  static String imageSize = "w300";
+  static String apiKEY = "46d78c3878b83f2a77f655ee5c36cde2";
+
   static List<KeyValueModel> dates = [
     KeyValueModel(key: "27_jan", value: "27 Jan"),
     KeyValueModel(key: "28_jan", value: "28 Jan"),
     KeyValueModel(key: "29_jan", value: "29 Jan"),
     KeyValueModel(key: "30_jan", value: "30 Jan"),
     KeyValueModel(key: "31_jan", value: "31 Jan"),
-    KeyValueModel(key: "1_feb", value: "1 Jan"),
+    KeyValueModel(key: "1_feb", value: "1 Feb"),
   ];
 
   static List<KeyValueModel> genres = [

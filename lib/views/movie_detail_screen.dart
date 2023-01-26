@@ -1,14 +1,24 @@
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:imdb_movies_app/controllers/api_service/api_service.dart';
 import 'package:imdb_movies_app/controllers/seat_reservation_controller.dart';
 import 'package:imdb_movies_app/controllers/utils/app_colors.dart';
 import 'package:imdb_movies_app/models/key_value_model.dart';
+import 'package:imdb_movies_app/models/movie_model.dart';
 import 'package:imdb_movies_app/views/seat_reservation_screen.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../controllers/utils/constants.dart';
 
 class MovieDetailScreen extends StatelessWidget {
-  const MovieDetailScreen({Key? key}) : super(key: key);
+  final MovieModel movie;
+  const MovieDetailScreen({
+    Key? key,
+    required this.movie,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +29,10 @@ class MovieDetailScreen extends StatelessWidget {
             child: Stack(
               children: [
                 Positioned.fill(
-                  child: Image.asset(
-                    "assets/images/cat_10.png",
+                  child: Image.network(
+                    Constants.imageBaseURL +
+                        Constants.imageSize +
+                        movie.backdropPath,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -54,9 +66,9 @@ class MovieDetailScreen extends StatelessWidget {
                   child: Center(
                     child: Column(
                       children: [
-                        const Text(
-                          "In Theaters December 22, 2021",
-                          style: TextStyle(
+                        Text(
+                          "In Theaters ${DateFormat("dd-MM-yyyy").format(movie.releaseDate)}",
+                          style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 16.0,
                             fontWeight: FontWeight.w600,
@@ -150,24 +162,48 @@ class MovieDetailScreen extends StatelessWidget {
                   const SizedBox(height: 20.0),
                   SizedBox(
                     height: 30.0,
-                    child: ListView.builder(
-                      itemCount: Constants.genres.length,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (BuildContext context, int index) {
-                        KeyValueModel keyValue = Constants.genres[index];
-                        return Container(
-                          decoration: BoxDecoration(
-                            color: Color(
-                              int.parse("0xFF${keyValue.value}"),
-                            ),
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          margin: const EdgeInsets.only(right: 10.0),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 15.0,
-                          ),
-                          child: Center(child: Text(keyValue.key)),
+                    child: FutureBuilder<List<KeyValueModel>>(
+                      future: ApiService.getAllGenre(),
+                      builder: (context, snapshot) {
+                        if (!snapshot.hasData) {
+                          return const Center(
+                            child: CupertinoActivityIndicator(),
+                          );
+                        }
+                        List<KeyValueModel> values = snapshot.data!
+                            .where((element) =>
+                                movie.genreIds.toString().contains(element.key))
+                            .map((e) => e)
+                            .toList();
+                        return ListView.builder(
+                          itemCount: values.length,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            KeyValueModel keyValue = values[index];
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: Color(
+                                  int.parse(
+                                          (Random().nextDouble() * 0xFFFFFF)
+                                              .toInt()
+                                              .toRadixString(16)
+                                              .substring(1, 6),
+                                          radix: 16) +
+                                      0xFF000000,
+                                ),
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              margin: const EdgeInsets.only(right: 10.0),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 15.0,
+                              ),
+                              child: Center(
+                                  child: Text(
+                                keyValue.value,
+                              )),
+                            );
+                          },
                         );
                       },
                     ),
@@ -182,11 +218,11 @@ class MovieDetailScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10.0),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 40.0),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 40.0),
                     child: Text(
-                      "As a collection of history's worst tyrants and criminal masterminds gather to plot a war to wipe out millions, one man must race against time to stop them. Discover the origins of the very first independent intelligence agency in The King's Man. The Comic Book “The Secret Service” by Mark Millar and Dave Gibbons.",
-                      style: TextStyle(
+                      movie.overview,
+                      style: const TextStyle(
                         color: AppColors.unSelectedIcon,
                         fontSize: 14.0,
                       ),
