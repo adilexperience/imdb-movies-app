@@ -1,16 +1,32 @@
 # imdb_movies_app
 
-Flutter IMDB mobile application built with themoviedb API.
+IMDB mobile application developed with the initial design provided in FIGMA, Main features including: Searching movies, trending movies, top movies, categories exploration, Movie detail, seat reservation with time and date selection with Provider and MVC Architecture
 
-## Getting Started
+[Android APK]()
 
-This project is a starting point for a Flutter application.
+[Video Demonstration of app working]()
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center">
+    <img src="assets/screenshots/top_movies.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/trending_movies.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/search_movie.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/movie_categories.png" width="450" height="850" />
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<br />
+<p align="center">
+    <img src="assets/screenshots/seat_reservation.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/date_hall_selection.png" width="450" height="850" />
+</p>
