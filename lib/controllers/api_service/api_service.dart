@@ -35,7 +35,7 @@ class ApiService {
           originalTitle: data['original_title'],
           overview: data['overview'],
           posterPath: data['poster_path'],
-          releaseDate: DateTime.parse(data['release_date']),
+          releaseDate: data['release_date'],
           title: data['title'],
         ),
       );
@@ -57,7 +57,7 @@ class ApiService {
           originalTitle: data['original_title'],
           overview: data['overview'],
           posterPath: data['poster_path'],
-          releaseDate: DateTime.parse(data['release_date']),
+          releaseDate: data['release_date'],
           title: data['title'],
         ),
       );
@@ -80,7 +80,7 @@ class ApiService {
           originalTitle: data['original_title'],
           overview: data['overview'],
           posterPath: data['poster_path'] ?? "",
-          releaseDate: DateTime.parse(data['release_date']),
+          releaseDate: data['release_date'],
           title: data['title'],
         ),
       );

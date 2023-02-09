@@ -27,7 +27,7 @@ class MovieModel {
   final String originalTitle;
   final String overview;
   final String posterPath;
-  final DateTime releaseDate;
+  final String releaseDate;
   final String title;
 
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
@@ -37,7 +37,7 @@ class MovieModel {
         originalTitle: json["original_title"],
         overview: json["overview"],
         posterPath: json["poster_path"],
-        releaseDate: DateTime.parse(json["release_date"]),
+        releaseDate: json["release_date"],
         title: json["title"],
       );
 
@@ -48,8 +48,7 @@ class MovieModel {
         "original_title": originalTitle,
         "overview": overview,
         "poster_path": posterPath,
-        "release_date":
-            "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
+        "release_date": releaseDate,
         "title": title,
       };
 }

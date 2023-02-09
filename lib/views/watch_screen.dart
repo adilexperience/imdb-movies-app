@@ -15,10 +15,6 @@ class WatchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ApiService.getAllGenre();
-    print(ApiService.getUpcomingMovies());
-    print(ApiService.getTopMovies());
-    print(ApiService.searchMovies("father"));
     return Scaffold(
       body: Consumer<SearchController>(
         builder: (context, controller, child) => controller.searchScreenState ==

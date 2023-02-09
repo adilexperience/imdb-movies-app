@@ -8,7 +8,6 @@ import 'package:imdb_movies_app/controllers/utils/app_colors.dart';
 import 'package:imdb_movies_app/models/key_value_model.dart';
 import 'package:imdb_movies_app/models/movie_model.dart';
 import 'package:imdb_movies_app/views/seat_reservation_screen.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../controllers/utils/constants.dart';
@@ -67,7 +66,7 @@ class MovieDetailScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "In Theaters ${DateFormat("dd-MM-yyyy").format(movie.releaseDate)}",
+                          "In Theaters ${movie.releaseDate}",
                           style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 16.0,

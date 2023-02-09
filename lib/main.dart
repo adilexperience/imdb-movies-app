@@ -34,10 +34,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'IMDB Movie App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Dashboard(),
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const Dashboard(),
     );
   }
 }
