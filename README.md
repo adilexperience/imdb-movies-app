@@ -6,7 +6,9 @@ IMDB mobile application developed with the initial design provided in FIGMA, Mai
 
 [FIGMA Design](https://www.figma.com/file/zUxb8in82YlB1aaXarSVO9/IMDB-Clone-app-design?node-id=0%3A1&t=VSt5FPMO9PP9u3YI-1)
 
-[Video Demonstration of app working](https://drive.google.com/file/d/1XcdzaLeLJs0cgYUrOp-s0Ts09bJqL3Ee/view?usp=sharing)
+[Demonstration video of code and application](https://drive.google.com/file/d/1x6MK8NxIz0-MNdFVdEOsvY_lEIAMA6RL/view?usp=sharing)
+
+[Working app video - Simulator](https://drive.google.com/file/d/1XcdzaLeLJs0cgYUrOp-s0Ts09bJqL3Ee/view?usp=sharing)
 
 <p align="center">
     <img src="assets/screenshots/top_movies.png" width="450" height="850" />
